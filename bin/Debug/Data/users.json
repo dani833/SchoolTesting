@@ -2,28 +2,28 @@
   {
     "Id": 1,
     "Login": "teacher",
-    "PasswordHash": "pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=",
+    "PasswordHash": "$2a$11$sWyTUmFZ45i1loseWGzZpOPcWWJ4S.GVY0pAMv.tRBhiosRMyIEnW",
     "Role": 0,
     "FullName": "Иванов И.И."
   },
   {
     "Id": 2,
     "Login": "student",
-    "PasswordHash": "pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=",
+    "PasswordHash": "$2a$11$IfY./KdM1V52KlzCAo2u9OtNe03PtMdE4GMLk7fpv3lwDxK2MoNZi",
     "Role": 1,
     "FullName": "Петров П.П."
   },
   {
     "Id": 1,
     "Login": "Учитель",
-    "PasswordHash": "pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=",
+    "PasswordHash": "$2a$11$IWvilxiduTjsitSaouhiH.bksHcqmL6DMyRFvbG5DC.6Uz1fY6D5.",
     "Role": 0,
     "FullName": "Иванов И.И."
   },
   {
     "Id": 2,
     "Login": "Ученик",
-    "PasswordHash": "pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=",
+    "PasswordHash": "$2a$11$j0M2dnsLlFsTw0BhLsg3JuQFgb9HSOHdiR2uj2RVAlYGWL4DS6Pge",
     "Role": 1,
     "FullName": "Петров П.П."
   }

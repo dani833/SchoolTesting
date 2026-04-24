@@ -30,9 +30,9 @@ namespace SchoolTesting.ViewModels
             }
         }
 
-        public bool IsMultipleChoice => SelectedType == QuestionType.MultipleChoice;
-        public bool IsTextInput => SelectedType == QuestionType.TextInput;
-        public bool IsNumberInput => SelectedType == QuestionType.NumberInput;
+        public bool IsMultipleChoice => SelectedType == QuestionType.Варианты;
+        public bool IsTextInput => SelectedType == QuestionType.ВводТекста;
+        public bool IsNumberInput => SelectedType == QuestionType.ВводЧислового;
 
         private string questionText;
         public string QuestionText { get => questionText; set => Set(ref questionText, value); }
@@ -61,7 +61,7 @@ namespace SchoolTesting.ViewModels
             if (question == null)
             {
                 originalQuestion = new MultipleChoiceQuestion();
-                SelectedType = QuestionType.MultipleChoice;
+                SelectedType = QuestionType.Варианты;
             }
             else
             {
@@ -103,7 +103,7 @@ namespace SchoolTesting.ViewModels
             Question result;
             switch (SelectedType)
             {
-                case QuestionType.MultipleChoice:
+                case QuestionType.Варианты:
                     if (Options.Count == 0) { MessageBox.Show("Добавьте варианты"); return; }
                     int correctIndex = -1;
                     for (int i = 0; i < Options.Count; i++)
@@ -117,11 +117,11 @@ namespace SchoolTesting.ViewModels
                         CorrectOptionIndex = correctIndex
                     };
                     break;
-                case QuestionType.TextInput:
+                case QuestionType.ВводТекста:
                     if (string.IsNullOrWhiteSpace(CorrectAnswer)) { MessageBox.Show("Введите правильный ответ"); return; }
                     result = new TextInputQuestion { Text = QuestionText, Score = Score, CorrectAnswer = CorrectAnswer };
                     break;
-                case QuestionType.NumberInput:
+                case QuestionType.ВводЧислового:
                     result = new NumberInputQuestion { Text = QuestionText, Score = Score, CorrectValue = CorrectValue, Tolerance = Tolerance };
                     break;
                 default:

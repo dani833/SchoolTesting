@@ -44,6 +44,7 @@ namespace SchoolTesting.Services
 
         public List<Test> LoadAllTests()
         {
+            var sw = System.Diagnostics.Stopwatch.StartNew();
             var tests = new List<Test>();
             var settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto };
             foreach (var f in Directory.GetFiles(testsFolder, "*.json"))
@@ -63,6 +64,8 @@ namespace SchoolTesting.Services
                 }
                 catch (Exception ex) { System.Diagnostics.Debug.WriteLine($"[ERROR] {ex.Message}"); }
             }
+            sw.Stop();
+            System.Diagnostics.Debug.WriteLine($"Загрузка тестов заняла: {sw.ElapsedMilliseconds} мс");
             return tests;
         }
         public List<TestResult> LoadAllResults()

@@ -1,13 +1,11 @@
-﻿using SchoolTesting.Models;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows.Input;
+using SchoolTesting.Models;
 using SchoolTesting.Services;
 using SchoolTesting.ViewModels.Base;
 using SchoolTesting.Views;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Windows;
-using System.Windows.Input;
 
 namespace SchoolTesting.ViewModels
 {
@@ -54,37 +52,15 @@ namespace SchoolTesting.ViewModels
             foreach (var t in all)
                 if (!completed.Contains(t.Id)) Tests.Add(t);
             Status = $"Доступно: {Tests.Count}";
-            // ВРЕМЕННО: создаём тестовый тест для отладки
-            if (Tests.Count == 0)
-            {
-                var test = new Test
-                {
-                    Title = "Отладочный тест",
-                    Subject = "Отладка",
-                    TimeLimitMinutes = 5,
-                    Questions = new List<Question>
-        {
-            new MultipleChoiceQuestion
-            {
-                Text = "Какой цвет неба?",
-                Options = new List<string> { "Синий", "Зелёный", "Красный" },
-                CorrectOptionIndex = 0,
-                Score = 1
-            }
-        }
-                };
-                ds.SaveTest(test);
-                Tests.Add(test);
-            }
         }
 
         private void StartTest(Test t)
         {
             if (t == null) return;
-            var w = new TestExecutionWindow(user, t);
-            w.Owner = Application.Current.MainWindow;
-            w.ShowDialog();
-            Load();
+            var executionWindow = new TestExecutionWindow(user, t);
+            
+            executionWindow.ShowDialog();
+            Load(); 
         }
     }
 }

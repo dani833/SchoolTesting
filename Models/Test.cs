@@ -41,24 +41,24 @@ namespace SchoolTesting.Models
         public abstract QuestionType Type { get; }
     }
 
-    public enum QuestionType { MultipleChoice, TextInput, NumberInput }
+    public enum QuestionType { Варианты, ВводТекста, ВводЧислового }
 
     public class MultipleChoiceQuestion : Question
     {
-        public override QuestionType Type => QuestionType.MultipleChoice;
+        public override QuestionType Type => QuestionType.Варианты;
         public List<string> Options { get; set; } = new List<string>();
         public int CorrectOptionIndex { get; set; }
     }
 
     public class TextInputQuestion : Question
     {
-        public override QuestionType Type => QuestionType.TextInput;
+        public override QuestionType Type => QuestionType.ВводТекста;
         public string CorrectAnswer { get; set; }
     }
 
     public class NumberInputQuestion : Question
     {
-        public override QuestionType Type => QuestionType.NumberInput;
+        public override QuestionType Type => QuestionType.ВводЧислового;
         public double CorrectValue { get; set; }
         public double Tolerance { get; set; } = 0.001;
     }

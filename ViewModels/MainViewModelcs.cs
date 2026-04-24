@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Windows.Input;
 using SchoolTesting.Models;
 using SchoolTesting.Services;
@@ -33,7 +31,11 @@ namespace SchoolTesting.ViewModels
             ErrorMessage = "";
             var user = ds.LoadUsers().FirstOrDefault(u => u.Login == Login && u.Role == role);
             if (user == null) { ErrorMessage = "Пользователь не найден"; return; }
-            if (HashPassword(Password) != user.PasswordHash) { ErrorMessage = "Неверный пароль"; return; }
+            if (!BCrypt.Net.BCrypt.Verify(Password, user.PasswordHash))
+            {
+                ErrorMessage = "Неверный пароль";
+                return;
+            }
             LoginSuccess?.Invoke(user);
         }
 
@@ -43,21 +45,29 @@ namespace SchoolTesting.ViewModels
             bool changed = false;
             if (!users.Any(u => u.Login == "Учитель"))
             {
-                users.Add(new User { Id = 1, Login = "Учитель", PasswordHash = HashPassword("123"), Role = UserRole.Teacher, FullName = "Иванов И.И." });
+                users.Add(new User
+                {
+                    Id = 1,
+                    Login = "Учитель",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("123"),
+                    Role = UserRole.Teacher,
+                    FullName = "Иванов И.И."
+                });
                 changed = true;
             }
             if (!users.Any(u => u.Login == "Ученик"))
             {
-                users.Add(new User { Id = 2, Login = "Ученик", PasswordHash = HashPassword("123"), Role = UserRole.Student, FullName = "Петров П.П." });
+                users.Add(new User
+                {
+                    Id = 2,
+                    Login = "Ученик",
+                    PasswordHash = BCrypt.Net.BCrypt.HashPassword("123"),
+                    Role = UserRole.Student,
+                    FullName = "Петров П.П."
+                });
                 changed = true;
             }
             if (changed) ds.SaveUsers(users);
-        }
-
-        private string HashPassword(string p)
-        {
-            using (var sha = SHA256.Create())
-                return Convert.ToBase64String(sha.ComputeHash(Encoding.UTF8.GetBytes(p)));
         }
     }
 }

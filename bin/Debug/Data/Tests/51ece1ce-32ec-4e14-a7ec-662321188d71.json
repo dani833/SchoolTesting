@@ -1,0 +1,17 @@
+{
+  "Id": "51ece1ce-32ec-4e14-a7ec-662321188d71",
+  "Title": "1 тест ",
+  "Subject": "математика",
+  "TimeLimitMinutes": 1,
+  "Questions": [
+    {
+      "$type": "SchoolTesting.Models.NumberInputQuestion, SchoolTesting",
+      "Type": 2,
+      "CorrectValue": 5.0,
+      "Tolerance": 0.0,
+      "Id": "7a154a91-62f3-45ed-ab85-5b377ef857f6",
+      "Text": "2,5+2,5=?",
+      "Score": 1
+    }
+  ]
+}

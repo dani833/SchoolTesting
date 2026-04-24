@@ -1,7 +1,8 @@
-System.ArgumentException: Невозможно указать себя в свойстве Owner.
-   в System.Windows.Window.set_Owner(Window value)
-   в SchoolTesting.ViewModels.StudentMainViewModel.StartTest(Test t) в E:\практика\SchoolTesting\SchoolTesting\ViewModels\StudentMainViewModel.cs:строка 85
-   в SchoolTesting.ViewModels.StudentMainViewModel.<.ctor>b__7_1(Object p) в E:\практика\SchoolTesting\SchoolTesting\ViewModels\StudentMainViewModel.cs:строка 26
+BCrypt.Net.SaltParseException: Invalid salt version
+   в BCrypt.Net.BCrypt.HashPassword(String inputKey, String salt, Boolean enhancedEntropy, HashType hashType)
+   в BCrypt.Net.BCrypt.Verify(String text, String hash, Boolean enhancedEntropy, HashType hashType)
+   в SchoolTesting.ViewModels.MainViewModel.Auth(UserRole role) в E:\практика\SchoolTesting\SchoolTesting\ViewModels\MainViewModelcs.cs:строка 34
+   в SchoolTesting.ViewModels.MainViewModel.<.ctor>b__22_1(Object _) в E:\практика\SchoolTesting\SchoolTesting\ViewModels\MainViewModelcs.cs:строка 25
    в SchoolTesting.ViewModels.Base.RelayCommand.Execute(Object parameter) в E:\практика\SchoolTesting\SchoolTesting\ViewModels\Base\RelayCommand.cs:строка 24
    в MS.Internal.Commands.CommandHelpers.CriticalExecuteCommandSource(ICommandSource commandSource, Boolean userInitiated)
    в System.Windows.Controls.Primitives.ButtonBase.OnClick()

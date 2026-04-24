@@ -1,0 +1,30 @@
+[
+  {
+    "Id": 1,
+    "Login": "teacher",
+    "PasswordHash": "pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=",
+    "Role": 0,
+    "FullName": "Иванов И.И."
+  },
+  {
+    "Id": 2,
+    "Login": "student",
+    "PasswordHash": "pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=",
+    "Role": 1,
+    "FullName": "Петров П.П."
+  },
+  {
+    "Id": 1,
+    "Login": "Учитель",
+    "PasswordHash": "pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=",
+    "Role": 0,
+    "FullName": "Иванов И.И."
+  },
+  {
+    "Id": 2,
+    "Login": "Ученик",
+    "PasswordHash": "pmWkWSBCL51Bfkhn79xPuKBKHz//H6B+mY6G9/eieuM=",
+    "Role": 1,
+    "FullName": "Петров П.П."
+  }
+]
